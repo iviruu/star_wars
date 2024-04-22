@@ -4,6 +4,7 @@ import { Naves } from '../../../shared/interface/naves.interface';
 import { Result } from '../../../shared/interface/naves.interface';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ListaService } from '../../../shared/lista/lista.service';
 
 @Component({
   selector: 'app-naves',
@@ -18,6 +19,7 @@ export class NavesComponent implements OnInit {
   constructor(
     private serviceNaves: NavesService,
     private route: ActivatedRoute,
+    private lista: ListaService
   ){}
 
   naves?:Result[];

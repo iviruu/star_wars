@@ -1,12 +1,23 @@
 <div class="container">
-    @for(pilot of allPilots; track $index){
-        <div class="cart">
+    @if(pilots && pilots.length > 0){
+        @for(pilot of allPilots; track $index){
+            <div class="cart">
                 <img [src]="imagenImp($index)" alt="img pilot" (error)="imgError()" class="cart_img">
             <div class="cart_body">
                 <h3>{{pilot.name}}</h3>
             </div>
         </div>
-
+        }
+    }@else{
+        <div class="sinArchivos">
+            <h2 class="text">
+                {{this.sinPilotos}}
+            </h2>
+            
+        </div>
+        
     }
+
+    
 </div>
 

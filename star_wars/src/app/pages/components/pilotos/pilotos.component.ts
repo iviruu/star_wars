@@ -5,6 +5,7 @@ import { Result } from '../../../shared/interface/naves.interface';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-pilotos',
   standalone: true,
@@ -25,7 +26,7 @@ export class PilotosComponent {
   starship?:Result;
   pilots?:string[];
   allPilots?: any[]
-
+  sinPilotos:string='NO hay pilotos.'
 
   ngOnInit(): void {
     this.serviceNaves.getNaves().subscribe({
@@ -46,11 +47,10 @@ export class PilotosComponent {
           next:(results)=>{
             this.allPilots= results;
             this.numberLast();
-            console.log('allpilots',this.allPilots)
-            console.log('pilots',this.pilots)
           }
-        })
+        })        
         }
+
       },
       error:(err)=>{
         console.log(err)

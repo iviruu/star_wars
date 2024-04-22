@@ -3,6 +3,7 @@ import { Result } from '../../shared/interface/naves.interface';
 import { NavesService } from '../../shared/api/naves.service';
 import { Naves } from '../../shared/interface/naves.interface';
 import { Router } from '@angular/router';
+import { ListaService } from '../../shared/lista/lista.service';
 
 @Component({
   selector: 'app-starships',
@@ -16,18 +17,17 @@ export class StarshipsComponent implements OnInit {
   constructor(
     private serviceNaves: NavesService,
     private router:Router,
+    private lista: ListaService,
   ){}
 
   starships?:Result[];
-  currentPage = 1;
-  loading= false;
 
   ngOnInit(): void {  
     this.serviceNaves.getNaves().subscribe({
       next:(nav:Naves | undefined) =>{
         if(nav){
           this.starships=nav.results.flat();
-        
+          this.lista.addData(this.starships);
         }
       },
       error:(err)=>{
@@ -47,9 +47,9 @@ export class StarshipsComponent implements OnInit {
     }
   }
   loadMoreNombres() {
-    const url = `https://swapi.py4e.com/api/starships/?page=${++this.currentPage}`;
-    this.serviceNaves.getNewStarships(url).subscribe(data => {
+    this.serviceNaves.getScroll().subscribe(data => {
       this.starships = [...(this.starships || []), ...(data?.results || [])];
+      this.lista.addData(data)
     });
   }
 }

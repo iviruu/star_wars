@@ -1,5 +1,6 @@
 <div class="container">
-    @for(film of allFilms; track $index){
+    @if(films && films.length > 0){
+          @for(film of allFilms; track $index){
         <div class="cart">
                 <img [src]="imagenImp($index)" alt="img films" (error)="imgError()" class="cart_img">
             <div class="cart_body">
@@ -7,6 +8,15 @@
                 <p>Episode:{{film.episode_id}}</p>
             </div>
         </div>
-
+    }  
+    }@else {
+        
+        <div class="sinArchivos">
+            <h2 class="text">
+                {{this.sinFilm}}
+            </h2>
+            
+        </div>
     }
+
 </div>

@@ -26,6 +26,7 @@ export class PeliculasComponent implements OnInit{
   starship?:Result;
   films?:string[];
   allFilms?: any[]
+  sinFilm:string='No hay films.'
 
 
   ngOnInit(): void {
@@ -47,8 +48,6 @@ export class PeliculasComponent implements OnInit{
           next:(results)=>{
             this.allFilms= results;
             this.numberLast();
-            console.log('allfilms',this.allFilms)
-            console.log('films',this.films)
           }
         })
         }

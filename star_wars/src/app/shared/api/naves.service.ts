@@ -13,6 +13,12 @@ export class NavesService {
 
   url:string = "https://swapi.dev/api/starships/" ;
   url2:string ="https://swapi.py4e.com/api/starships/" ;
+  urlScroll= `https://swapi.py4e.com/api/starships/?page=`;
+  currentPage:number = 1 ;
+
+
+
+
   getNaves(): Observable<Naves | undefined>{
     return this.http.get<Naves>(this.url).pipe(
       catchError((error)=> {
@@ -34,7 +40,8 @@ export class NavesService {
     return forkJoin(requests);
   }
 
-  getNewStarships(url:string):Observable<Naves | undefined>{
-    return this.http.get<Naves>(url);
-  };
+
+  getScroll():Observable<any>{
+    return this.http.get(`${this.urlScroll}${this.currentPage++}`)
+  }
 }
