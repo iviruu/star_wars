@@ -20,9 +20,26 @@ export class NavesComponent implements OnInit {
     private serviceNaves: NavesService,
     private route: ActivatedRoute,
     private lista: ListaService
-  ){}
+  ){
+    this.lista.dataArray$.subscribe(item=>{
+      this.listaNaves = item;
+      if(this.listaNaves){
+              this.naves=this.listaNaves.flat();
+              this.route.paramMap.subscribe(params=>{
+                const starShipName = params.get('name');
+                if(starShipName && this.naves){
+                  const starship = this.naves.find(nav=> nav.name === starShipName);
+                  this.starship = starship;
+                  this.numberLast()
+                  this.imagenImp()
+                }
+              })
+            }
+    })
+  }
 
   naves?:Result[];
+  listaNaves?:Result[];
   imagen:string='https://starwars-visualguide.com/assets/img/starships/';
   imagenError:string='https://starwars-visualguide.com/assets/img/placeholder.jpg'
   imgImp:string='';
@@ -30,26 +47,26 @@ export class NavesComponent implements OnInit {
   lastNumber:string | null ='';
 
   ngOnInit(): void {
-    this.serviceNaves.getNaves().subscribe({
-      next:(nav:Naves | undefined) =>{
-        if(nav){
-        this.naves=nav.results.flat();
-        this.route.paramMap.subscribe(params=>{
-          const starShipName = params.get('name');
-          if(starShipName && this.naves){
-            const starship = this.naves.find(nav=> nav.name === starShipName);
-            this.starship = starship;
-            this.numberLast()
-            this.imagenImp()
-          }
-        })
-        }
-      },
-      error:(err)=>{
-        console.log(err)
-      }
-    });
-  }
+  //   this.serviceNaves.getNaves().subscribe({
+  //     next:(nav:Naves | undefined) =>{
+  //       if(nav){
+  //       this.naves=nav.results.flat();
+  //       this.route.paramMap.subscribe(params=>{
+  //         const starShipName = params.get('name');
+  //         if(starShipName && this.naves){
+  //           const starship = this.naves.find(nav=> nav.name === starShipName);
+  //           this.starship = starship;
+  //           this.numberLast()
+  //           this.imagenImp()
+  //         }
+  //       })
+  //       }
+  //     },
+  //     error:(err)=>{
+  //       console.log(err)
+  //     }
+  //   });
+    }
  numberLast(){
   if(this.starship){
     const match = this.starship.url.match(/\/(\d+)\/$/);

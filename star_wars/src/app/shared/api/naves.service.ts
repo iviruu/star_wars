@@ -41,7 +41,7 @@ export class NavesService {
   }
 
 
-  getScroll():Observable<any>{
-    return this.http.get(`${this.urlScroll}${this.currentPage++}`)
+  getScroll(pages:number):Observable<any>{
+        return this.http.get(`${this.urlScroll}${pages}`)
   }
 }

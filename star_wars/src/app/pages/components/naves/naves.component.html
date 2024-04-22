@@ -3,6 +3,17 @@
             <div class="img">
                 <img [src]="imgImp" alt="starship" (error)="imgError()">
             </div>
+            <div  class ="descripcion" id ="nave">
+                <h3> {{starship.name}} </h3>
+                <p> <strong> Modelo: </strong> {{starship.model}} </p>
+                <p> <strong> Clase de nave estelar: </strong> {{starship.starship_class}} </p>
+                <p> <strong> Longitudes: </strong> {{starship.length}} </p >
+                <p> <strong> Miembros de la tripulación: </strong> {{starship.crew}} </p>
+                <p> <strong> Fabricante: </strong> {{starship.manufacturer}} </p >
+                <p> <strong> Velocidad máxima de atmósfera: </strong> {{starship.max_atmosphering_speed}} </p>
+                <p> <strong> Costo en créditos: </strong> {{starship.cost_in_credits}} </p>
+
+            </div>​​
 
         
 </div>

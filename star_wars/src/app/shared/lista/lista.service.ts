@@ -20,4 +20,15 @@ export class ListaService {
 getData() {
   return this.dataArray.value;
 }
+removeData(item: any) {
+  const currentData = this.dataArray.value;
+  const index = currentData.indexOf(item);
+  if (index > -1) {
+    currentData.splice(index, 1);
+    this.dataArray.next([...currentData]);
+  }
+}
+removeAll(){
+  this.dataArray.next([]);
+}
 }
