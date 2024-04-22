@@ -1,0 +1,18 @@
+
+<div class="container" *ngIf="starship">       
+            <div class="img">
+                <img [src]="imgImp" alt="starship" (error)="imgError()">
+            </div>
+            <div class="descripcion" id="nave">
+                <h3>{{starship.name}}</h3>
+                <p><strong>Model: </strong>{{starship.model}} </p>
+                <p><strong>Starship class: </strong>{{starship.starship_class}} </p>
+                <p><strong>Lengths: </strong>{{starship.length}} </p>
+                <p><strong>Crew members: </strong>{{starship.crew}} </p>
+                <p><strong>Manufacturer: </strong>{{starship.manufacturer}} </p>
+                <p><strong>Maximum atmosphering speed: </strong>{{starship.max_atmosphering_speed}} </p>
+                <p><strong>Cost in credits: </strong>{{starship.cost_in_credits}} </p>
+
+            </div>
+        
+</div>

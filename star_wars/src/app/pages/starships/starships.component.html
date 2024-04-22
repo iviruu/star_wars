@@ -1,0 +1,13 @@
+
+<div class="page">
+    @for(nav of starships; track $index){
+        <div class="container" (click)="starshipDetails(nav)">
+            <div class="name">
+                <h3>{{nav.name}}</h3>
+            </div>
+            <div class="model">
+                <p>{{nav.model}}</p>
+            </div>
+        </div>
+    }
+</div>
