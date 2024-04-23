@@ -4,7 +4,7 @@ import { Naves } from '../../../shared/interface/naves.interface';
 import { Result } from '../../../shared/interface/naves.interface';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ListaService } from '../../../shared/lista/lista.service';
+import { ListaService } from '../../../shared/service/lista.service';
 
 @Component({
   selector: 'app-naves',
@@ -47,25 +47,6 @@ export class NavesComponent implements OnInit {
   lastNumber:string | null ='';
 
   ngOnInit(): void {
-  //   this.serviceNaves.getNaves().subscribe({
-  //     next:(nav:Naves | undefined) =>{
-  //       if(nav){
-  //       this.naves=nav.results.flat();
-  //       this.route.paramMap.subscribe(params=>{
-  //         const starShipName = params.get('name');
-  //         if(starShipName && this.naves){
-  //           const starship = this.naves.find(nav=> nav.name === starShipName);
-  //           this.starship = starship;
-  //           this.numberLast()
-  //           this.imagenImp()
-  //         }
-  //       })
-  //       }
-  //     },
-  //     error:(err)=>{
-  //       console.log(err)
-  //     }
-  //   });
     }
  numberLast(){
   if(this.starship){

@@ -3,7 +3,7 @@ import { Result } from '../../shared/interface/naves.interface';
 import { NavesService } from '../../shared/api/naves.service';
 import { Naves } from '../../shared/interface/naves.interface';
 import { Router } from '@angular/router';
-import { ListaService } from '../../shared/lista/lista.service';
+import { ListaService } from '../../shared/service/lista.service';
 
 @Component({
   selector: 'app-starships',
