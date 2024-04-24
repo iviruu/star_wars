@@ -6,4 +6,10 @@
 .container{
     width: 99%;
     height: 100dvh;
+    position: fixed;
+    z-index: 100;
+    background-image: url(../assets/img/star-wars-backgrounds-14_856985d9.jpeg);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
 }

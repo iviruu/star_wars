@@ -4,6 +4,7 @@ import { Naves } from '../../../shared/interface/naves.interface';
 import { Result } from '../../../shared/interface/naves.interface';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ListaService } from '../../../shared/service/lista.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class PilotosComponent {
   constructor(
     private serviceNaves: NavesService,
     private route: ActivatedRoute,
+    private lista:ListaService,
   ){}
 
   naves?:Result[];
@@ -29,33 +31,28 @@ export class PilotosComponent {
   sinPilotos:string='NO hay pilotos.'
 
   ngOnInit(): void {
-    this.serviceNaves.getNaves().subscribe({
-      next:(nav:Naves | undefined) =>{
-        if(nav){
-        this.naves=nav.results.flat();
-        this.route.paramMap.subscribe(params=>{
-          const starShipName = params.get('name');
-          if(starShipName && this.naves){
-            const starship = this.naves.find(nav=> nav.name === starShipName);
-            this.starship = starship;
-            this.pilots= this.starship?.pilots
+    this.lista.dataArray$.subscribe(item=>{
+      this.naves = item;
+      if(this.naves){
+              this.route.params.subscribe(params=>{
+                const starShipName = decodeURIComponent(params['name']);
+                if(starShipName && this.naves){
+                  const starship = this.naves.find(nav=> nav.name === starShipName);
+                  this.starship = starship;
+                  this.pilots= this.starship?.pilots
+                }
+              })
+            }
+            if(this.pilots){
+              this.serviceNaves.multiUrl(this.pilots).subscribe({
+              next:(results)=>{
+                this.allPilots= results;
+                this.numberLast();
+              }
+              })
+            }
           }
-        })
-        }
-        if(this.pilots){
-          this.serviceNaves.multiUrl(this.pilots).subscribe({
-          next:(results)=>{
-            this.allPilots= results;
-            this.numberLast();
-          }
-        })        
-        }
-
-      },
-      error:(err)=>{
-        console.log(err)
-      }
-    });
+    );
   }
   numberLast() {
     if (this.allPilots) {

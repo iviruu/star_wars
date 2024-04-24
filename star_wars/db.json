@@ -14,6 +14,11 @@
       "email": "kok@kok.com",
       "password": "$2a$10$xE5kP/dK4UiCqiKc6ndGoOHpRuQmGvBKfThdGGBa62cZqMDyUnv2C",
       "id": 3
+    },
+    {
+      "email": "ded@ded.com",
+      "password": "$2a$10$TDjWcUUccj1wpihhAhs1ouVF2nFn8UXl9o.BXBv65y9CvNvwGwJK.",
+      "id": 4
     }
   ]
 }

@@ -4,6 +4,7 @@ import { Naves } from '../../../shared/interface/naves.interface';
 import { Result } from '../../../shared/interface/naves.interface';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ListaService } from '../../../shared/service/lista.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class PeliculasComponent implements OnInit{
   constructor(
     private serviceNaves: NavesService,
     private route: ActivatedRoute,
+    private lista: ListaService,
   ){}
 
   naves?:Result[];
@@ -28,34 +30,29 @@ export class PeliculasComponent implements OnInit{
   allFilms?: any[]
   sinFilm:string='No hay films.'
 
-
   ngOnInit(): void {
-    this.serviceNaves.getNaves().subscribe({
-      next:(nav:Naves | undefined) =>{
-        if(nav){
-        this.naves=nav.results.flat();
-        this.route.paramMap.subscribe(params=>{
-          const starShipName = params.get('name');
-          if(starShipName && this.naves){
-            const starship = this.naves.find(nav=> nav.name === starShipName);
-            this.starship = starship;
-            this.films= this.starship?.films
+    this.lista.dataArray$.subscribe(item=>{
+      this.naves = item;
+      if(this.naves){
+              this.route.params.subscribe(params=>{
+                const starShipName = decodeURIComponent(params['name']);
+                if(starShipName && this.naves){
+                  const starship = this.naves.find(nav=> nav.name === starShipName);
+                  this.starship = starship;
+                  this.films= this.starship?.films
+                }
+              })
+            }
+            if(this.films){
+              this.serviceNaves.multiUrl(this.films).subscribe({
+              next:(results)=>{
+                this.allFilms= results;
+                this.numberLast();
+              }
+              })
+            }
           }
-        })
-        }
-        if(this.films){
-          this.serviceNaves.multiUrl(this.films).subscribe({
-          next:(results)=>{
-            this.allFilms= results;
-            this.numberLast();
-          }
-        })
-        }
-      },
-      error:(err)=>{
-        console.log(err)
-      }
-    });
+    );
   }
   numberLast() {
     if (this.allFilms) {

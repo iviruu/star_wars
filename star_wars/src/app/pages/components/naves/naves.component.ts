@@ -20,7 +20,6 @@ export class NavesComponent implements OnInit {
   ){
   }
 
-  naves?:Result[];
   listaNaves?:Result[];
   imagen:string='https://starwars-visualguide.com/assets/img/starships/';
   imagenError:string='https://starwars-visualguide.com/assets/img/placeholder.jpg'
@@ -30,18 +29,13 @@ export class NavesComponent implements OnInit {
 
   ngOnInit(): void {
     this.lista.dataArray$.subscribe(item=>{
-      console.log('item', item)
       this.listaNaves = item;
       if(this.listaNaves){
-              this.route.paramMap.subscribe(params=>{
-                const starShipName = params.get('name')?.replace(/[^a-zA-Z0-9 ]/g, "");
-
-                console.log('nombre', starShipName)
+              this.route.params.subscribe(params=>{
+                const starShipName = decodeURIComponent(params['name']);
                 if(starShipName && this.listaNaves){
-                  console.log('nave', this.naves)
                   const starship = this.listaNaves.find(nav=> nav.name === starShipName);
                   this.starship = starship;
-                  console.log('starship', this.starship)
                   this.numberLast()
                   this.imagenImp()
                 }
