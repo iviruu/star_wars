@@ -31,7 +31,7 @@ export class StarshipsComponent implements OnInit {
       next:(nav:Naves | undefined) =>{
         if(nav){
           this.starships=nav.results.flat();
-          console.log('starship', this.starships)
+
         }
       },
       error:(err)=>{
@@ -42,11 +42,11 @@ export class StarshipsComponent implements OnInit {
 
 
   starshipDetails(nav:Result){
-    this.router.navigate(['/starships', nav.name]);
     this.lista.removeAll();
     if (this.starships) {
       this.lista.addData(this.starships);
     }
+    this.router.navigate(['/starships', nav.name]);
   }
   
   @HostListener('window:scroll',['$event'])

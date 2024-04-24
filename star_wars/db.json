@@ -9,6 +9,11 @@
       "email": "rer@gmail.com",
       "password": "$2a$10$t3jhoSJ92wKXrvBnTGL15ujgfKQuQ91PNE/tXp8VuesTo73AhJxFS",
       "id": 2
+    },
+    {
+      "email": "kok@kok.com",
+      "password": "$2a$10$xE5kP/dK4UiCqiKc6ndGoOHpRuQmGvBKfThdGGBa62cZqMDyUnv2C",
+      "id": 3
     }
   ]
 }

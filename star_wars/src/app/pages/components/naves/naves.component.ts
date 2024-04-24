@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavesService } from '../../../shared/api/naves.service';
-import { Naves } from '../../../shared/interface/naves.interface';
 import { Result } from '../../../shared/interface/naves.interface';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -17,25 +15,9 @@ export class NavesComponent implements OnInit {
 
 
   constructor(
-    private serviceNaves: NavesService,
     private route: ActivatedRoute,
     private lista: ListaService
   ){
-    this.lista.dataArray$.subscribe(item=>{
-      this.listaNaves = item;
-      if(this.listaNaves){
-              this.naves=this.listaNaves.flat();
-              this.route.paramMap.subscribe(params=>{
-                const starShipName = params.get('name');
-                if(starShipName && this.naves){
-                  const starship = this.naves.find(nav=> nav.name === starShipName);
-                  this.starship = starship;
-                  this.numberLast()
-                  this.imagenImp()
-                }
-              })
-            }
-    })
   }
 
   naves?:Result[];
@@ -47,17 +29,36 @@ export class NavesComponent implements OnInit {
   lastNumber:string | null ='';
 
   ngOnInit(): void {
-    }
- numberLast(){
+    this.lista.dataArray$.subscribe(item=>{
+      console.log('item', item)
+      this.listaNaves = item;
+      if(this.listaNaves){
+              this.route.paramMap.subscribe(params=>{
+                const starShipName = params.get('name')?.replace(/[^a-zA-Z0-9 ]/g, "");
+
+                console.log('nombre', starShipName)
+                if(starShipName && this.listaNaves){
+                  console.log('nave', this.naves)
+                  const starship = this.listaNaves.find(nav=> nav.name === starShipName);
+                  this.starship = starship;
+                  console.log('starship', this.starship)
+                  this.numberLast()
+                  this.imagenImp()
+                }
+              })
+            }
+    })
+  }
+  numberLast(){
   if(this.starship){
     const match = this.starship.url.match(/\/(\d+)\/$/);
     this.lastNumber = match ? match[1]: null;
   }
  }
- imagenImp(){
+  imagenImp(){
   this.imgImp= this.imagen + this.lastNumber + '.jpg';
  }
- imgError(){
+  imgError(){
   this.imgImp= this.imagenError
  }
 }
