@@ -7,9 +7,9 @@ import { authGuard } from './shared/guard/auth.guard';
 
 export const routes: Routes = [
 
-    { path: 'starships', component: StarshipsComponent },
-    { path: 'home', component: HomeComponent, canActivate: [authGuard] },
-    { path: 'starships/:name', loadComponent:()=>import('./pages/body/body.component').then(m => m.BodyComponent)},
+    { path: 'starships', component: StarshipsComponent},
+    { path: 'home', component: HomeComponent},
+    { path: 'starships/:name', loadComponent:()=>import('./pages/body/body.component').then(m => m.BodyComponent), canActivate: [authGuard]  },
     { path: 'login', component: LoginComponent },
     {  path: 'register', component: RegisterComponent },
     { path: '**', redirectTo: 'home'},

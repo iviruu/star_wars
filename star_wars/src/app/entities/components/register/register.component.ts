@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../shared/service/auth.service';
 
 
 @Component({
@@ -12,12 +14,17 @@ import { FormsModule} from '@angular/forms';
 })
 export class RegisterComponent{
 
-  constructor(private http: HttpClient) {}
-  
+  constructor(private http: HttpClient, private router: Router, private authservice:AuthService) {}
+
   onSubmit(data: any) {
-    this.http.post('ocalhost:4200/register', data).subscribe({
-      next: (response) => console.log('User registered', response),
-      error: (error) => console.error('Error registering', error)
+    this.http.post('http://localhost:3000/register', data).subscribe({
+      next: (response) => {
+        console.log('Registration successful', response);
+        this.router.navigate(['/login']);
+      },
+      error: (error) => {
+        console.error('Registration failed', error);
+      }
     });
   }
 }

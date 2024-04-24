@@ -1,3 +1,14 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "lol@lol.com",
+      "password": "$2a$10$TZ649QUz1MzgLldZl4wxAueec19EQNW0LiK9Jwd/SEWffDye84q4K",
+      "id": 1
+    },
+    {
+      "email": "rer@gmail.com",
+      "password": "$2a$10$t3jhoSJ92wKXrvBnTGL15ujgfKQuQ91PNE/tXp8VuesTo73AhJxFS",
+      "id": 2
+    }
+  ]
 }

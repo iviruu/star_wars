@@ -19,20 +19,19 @@ export class StarshipsComponent implements OnInit {
     private router:Router,
     private lista: ListaService,
   ){
-
-  
   }
 
   starships?:Result[];
   currentPage:number=0
+  lastNumber:string | null ='';
 
   ngOnInit(): void {
     this.currentPage=0;
-    this.lista.removeAll();
     this.serviceNaves.getNaves().subscribe({
       next:(nav:Naves | undefined) =>{
         if(nav){
           this.starships=nav.results.flat();
+          console.log('starship', this.starships)
         }
       },
       error:(err)=>{
@@ -40,9 +39,14 @@ export class StarshipsComponent implements OnInit {
       }
     })
     }
+
+
   starshipDetails(nav:Result){
     this.router.navigate(['/starships', nav.name]);
-    this.lista.addData(this.starships);
+    this.lista.removeAll();
+    if (this.starships) {
+      this.lista.addData(this.starships);
+    }
   }
   
   @HostListener('window:scroll',['$event'])
