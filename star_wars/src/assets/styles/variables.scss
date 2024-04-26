@@ -19,6 +19,7 @@ $dimedPrimary: #c1c1c1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 1px solid $primary;
 }
 
 .cart_img{
@@ -27,5 +28,26 @@ $dimedPrimary: #c1c1c1;
 }
 .text{
     font-size: 30px;
+}
+
+@media(max-width: 800px){
+    .cart{
+        width: 40%;
+    }
+    .container1{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+@media(max-width: 510px){
+    .cart{
+        width: 70%;
+    }
+    .container1{
+        flex-direction: column;
+        align-items: center;
+        justify-content: baseline;
+    }
 }
 
