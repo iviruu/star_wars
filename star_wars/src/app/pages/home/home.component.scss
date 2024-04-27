@@ -27,10 +27,24 @@
     transform-origin: 50% 100%;
     animation: crawl 100s linear 0s infinite;
   }
-  
+
+  @media (max-width:1400px) {
+    .crawl{
+      font-size: 35px;
+      top: 1100vh;
+    }
+    
+  }
+    @media (max-width:800px) {
+    .crawl{
+      font-size: 25px;
+      top: 1100vh;
+    }
+    
+  }
   @keyframes crawl {
     0% {
-      top: 220vh;
+      top: 200vh;
       transform: rotateX(20deg)  scale(1);
     }
     100% {

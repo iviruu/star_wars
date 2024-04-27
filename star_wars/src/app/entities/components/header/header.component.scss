@@ -23,6 +23,7 @@
         background: none;
         width: 40px;
         height: 40px;
+         margin: 4px;
     }
     .title{
         width: 50%;
@@ -35,4 +36,35 @@
         display: flex;
         justify-content: end;
     }
+    .login_btn{
+        background: none;
+        color: $dimedPrimary;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        padding-right: 30px;
+    }
+    .logout_btn{
+        background: none;
+        color: $dimedPrimary;
+        font-size: 25px;
+        border: none;
+        cursor: pointer;
+        padding-right: 30px;
+    }
+    .log{
+        padding-right: 5px;
+    }
+    @media(max-width:600px){
+        .log{
+            width: 30px;
+        }
+        .login_btn{
+            font-size: 0;
+        }
+        .logout_btn{
+            font-size: 0;
+        }
+    }
 }
+

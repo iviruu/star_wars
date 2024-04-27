@@ -9,10 +9,13 @@
 }
 
 .descripcion{
+    width:100% ;
     background-color: #818080;
-    padding-left:10px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+}
+.descripcion p,h3{
+    padding-left: 15px;
 }
 .img{
     width: 100%;

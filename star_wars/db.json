@@ -19,6 +19,16 @@
       "email": "ded@ded.com",
       "password": "$2a$10$TDjWcUUccj1wpihhAhs1ouVF2nFn8UXl9o.BXBv65y9CvNvwGwJK.",
       "id": 4
+    },
+    {
+      "email": "rera@gmail.com",
+      "password": "$2a$10$B7XPrW/tyFrzDeUsP5lSwOWK1yZQv6tD4r6lyPcN2mnh3RvhaprHO",
+      "id": 5
+    },
+    {
+      "email": "sad@sad",
+      "password": "$2a$10$zQRjoK4Ft0MEPUzfzDPBB.z1UppOQfHifptEz6gzLsuK1ZdCdnY16",
+      "id": 6
     }
   ]
 }

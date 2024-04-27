@@ -3,12 +3,29 @@
 
 
 
-#button{
+#laser_btn{
     background: none;
     border: none;
     color: rgb(141, 137, 137);
     cursor: pointer;
-    transition: color 0.3s, border-bottom 0.3s;
+    position: relative;
+}
+#laser_btn::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 6px;
+    bottom: -13px; 
+    left: 50%; 
+    background-color: $yellow; 
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px $yellow;
+    border-radius: 100px;
+}
+
+#laser_btn:focus::after {
+    width: 100%; 
+    left: 0; 
 }
 
 
@@ -23,6 +40,10 @@
     
 
     &_text1{
+        color: $dimedPrimary;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 25px;
         height: 100%;
         display: flex;
         align-items: center;
@@ -30,6 +51,10 @@
        
     }
     &_text2{
+        color: $dimedPrimary;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 25px;
         height: 100%;
         display: flex;
         align-items: center;
