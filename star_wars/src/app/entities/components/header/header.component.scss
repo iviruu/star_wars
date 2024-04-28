@@ -55,6 +55,11 @@
     .log{
         padding-right: 5px;
     }
+    @media(max-width:400px){
+        .logout_btn{
+            padding: 0;
+        }
+    }
     @media(max-width:600px){
         .log{
             width: 30px;
@@ -65,6 +70,11 @@
         .logout_btn{
             font-size: 0;
         }
+        .logos{
+            display: flex;
+            flex-direction: column;
+        }
     }
+
 }
 

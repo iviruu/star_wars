@@ -29,6 +29,11 @@
       "email": "sad@sad",
       "password": "$2a$10$zQRjoK4Ft0MEPUzfzDPBB.z1UppOQfHifptEz6gzLsuK1ZdCdnY16",
       "id": 6
+    },
+    {
+      "email": "laura@laura.com",
+      "password": "$2a$10$40YNNIBF4NPZT9BIZe5.xOP3f4Q8aq/PbIIwgUKTaBkFwv6OqfOHW",
+      "id": 7
     }
   ]
 }

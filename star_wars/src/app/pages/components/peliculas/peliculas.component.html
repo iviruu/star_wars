@@ -3,7 +3,7 @@
           @for(film of allFilms; track $index){
         <div class="cart">
                 <img [src]="imagenImp($index)" alt="img films" (error)="imgError()" class="cart_img">
-            <div class="cart_body">
+            <div class="cart_body text1">
                 <h3>{{film.title}}</h3>
                 <p>Episode:{{film.episode_id}}</p>
             </div>

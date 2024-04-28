@@ -1,17 +1,16 @@
-$blue: #0e90fb;
-$green: #00ec71;
-$red: #d32208;
+
+$secundary: #e5e2e1;
 $yellow: #ffe84c;
 
 $background: #031010;
 $primary: #f2f2f2;
-
+$shadow:#5c5b5b;
 $dimedPrimary: #f8f8f8;
 
 .cart{
     width: 15%;
     height: 350px;
-    background-color: #818080;
+    background-color: $shadow;
     border-radius: 25px;
     overflow: hidden; 
     margin: 20px;
@@ -20,6 +19,8 @@ $dimedPrimary: #f8f8f8;
     align-items: center;
     justify-content: center;
     border: 1px solid $primary;
+    box-shadow: 0 0 10px $dimedPrimary;
+
 }
 
 .cart_img{
@@ -28,6 +29,9 @@ $dimedPrimary: #f8f8f8;
 }
 .text{
     font-size: 30px;
+}
+.text1{
+    letter-spacing:1.5px;  
 }
 
 

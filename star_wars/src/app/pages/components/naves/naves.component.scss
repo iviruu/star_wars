@@ -5,12 +5,13 @@
     margin: 10px;
     border: 1px solid $primary;
     border-radius: 25px;
-    
+    box-shadow: 0 0 10px $dimedPrimary;
 }
 
 .descripcion{
     width:100% ;
-    background-color: #818080;
+    background-color: $shadow;
+    color: $primary;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }

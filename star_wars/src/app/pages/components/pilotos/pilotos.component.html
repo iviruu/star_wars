@@ -3,7 +3,7 @@
         @for(pilot of allPilots; track $index){
             <div class="cart">
                 <img [src]="imagenImp($index)" alt="img pilot" (error)="imgError()" class="cart_img">
-            <div class="cart_body">
+            <div class="cart_body text1">
                 <h3>{{pilot.name}}</h3>
             </div>
         </div>
