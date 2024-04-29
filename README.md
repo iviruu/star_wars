@@ -41,7 +41,7 @@ npm install -g @angular/cli
 1. Levanta el servidor JSON en el puerto 3000:
 
 ```bash
-json-server --watch db.json --port 3000
+npx json-server-auth db.json
 ```
 
 2. Clona el repositorio:
