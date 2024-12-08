@@ -1,6 +1,3 @@
-
-
-
 .page{
     display: flex;
     flex-direction: column;
@@ -14,4 +11,46 @@
     width: 70%;
     background-color: dimgrey;
     padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+                   inset 0 0 10px rgba(255, 255, 255, 0.5);
+        background-color: #4a4a4a;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    &:hover::before {
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .name {
+        h3 {
+            color: white;
+            margin: 0;
+            padding: 5px 0;
+        }
+    }
+
+    .model {
+        p {
+            color: #cccccc;
+            margin: 0;
+            padding: 5px 0;
+        }
+    }
 }

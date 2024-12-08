@@ -2,40 +2,31 @@
     <div class="logos">
         <div class="target_logos">
             <img class="logo1" src="https://lumiere-a.akamaihd.net/v1/images/tiktok-logo-white_dd1a4867.svg?region=0%2C0%2C100%2C100" alt="tiktok logo">
-
         </div>
-            <div class="target_logos">
-            <img class="logo1"  src="https://static-mh.content.disney.io/matterhorn/assets/utility/social/xlogo_light-66228d1292cd.png" alt="twiter logo">
-
-            </div>
-            <div class="target_logos">
-            <img class="logo1"  src="https://static-mh.content.disney.io/matterhorn/assets/starwars/footer/instagram-white-8d399960b577.svg" alt=" instagram logo">
-
-            </div>
-
-        
-        
-    </div >
-    <div class="title">
-    <img src="../../../../assets/img/sw_logo_stacked_2x-52b4f6d33087_7ef430af (1).png" alt="logo" class="header_img">
-
+        <div class="target_logos">
+            <img class="logo1" src="https://static-mh.content.disney.io/matterhorn/assets/utility/social/xlogo_light-66228d1292cd.png" alt="twiter logo">
+        </div>
+        <div class="target_logos">
+            <img class="logo1" src="https://static-mh.content.disney.io/matterhorn/assets/starwars/footer/instagram-white-8d399960b577.svg" alt="instagram logo">
+        </div>
     </div>
     
-      <div class="login">
+    <div class="title">
+        <img src="../../../../assets/img/sw_logo_stacked_2x-52b4f6d33087_7ef430af (1).png" alt="Star Wars logo" class="header_img">
+    </div>
+    
+    <div class="login">
         @if(tokken()){ 
-        <button (click)="logout()" class="logout_btn"><img class="log" src="https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg" alt="Logout">Logout
-
-        </button>
-    
-    
-    }@else {
-        <button (click)="login()" class="login_btn"> <img class="log" src="https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg" alt="login">Login
-
-        </button>
-    }
-    </div>  
-    
-    
-   
+            <button (click)="logout()" class="logout_btn">
+                <img class="log" src="https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg" alt="Logout">
+                Logout
+            </button>
+        } @else {
+            <button (click)="login()" class="login_btn">
+                <img class="log" src="https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg" alt="login">
+                Login
+            </button>
+        }
+    </div>
 </header>   
 

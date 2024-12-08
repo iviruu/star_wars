@@ -44,17 +44,12 @@ npm install -g @angular/cli
 git clone https://github.com/iviruu/star_wars.git
 ```
 
-2. Ingresa al directorio del proyecto:
-```bash
-cd star_wars
-```
-
-3. Instala las dependencias:
+2. Instala las dependencias:
 ```bash
 npm install
 ```
 
-4. Levanta el servidor JSON en el puerto 3000:
+3. Levanta el servidor JSON en el puerto 3000:
 
 ```bash
 npx json-server-auth db.json
